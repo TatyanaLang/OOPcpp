@@ -1,5 +1,4 @@
 #include <iostream>
-#include <sstream>
 
 template <typename T>
 class Container
@@ -16,7 +15,8 @@ public:
 	T *m_data;
 	unsigned int m_size;
 	int m_last;
-	int m_pr_size;
+	unsigned int m_pr_size;
+	unsigned int m_capacity;
 protected:
 	void allocate();
 protected:
@@ -29,12 +29,13 @@ Container<T>::Container()
 	m_size = 0;
 	m_last = -1;
 	m_pr_size = 5;
+	m_capacity = 0;
 }
 
 template <typename T>
 Container<T>::Container( unsigned int k )
 {
-	m_data = new T[ k ]();
+	m_data = new T[k]();
 	m_last = k - 1;
 	m_size = k;
 }
